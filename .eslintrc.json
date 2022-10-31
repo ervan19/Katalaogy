@@ -1,0 +1,22 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": ["eslint:recommended", "google"],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+        "eqeqeq" : ["error", "always"],
+        "quotes" : ["error", "double"],
+        "no-console" : 0,
+        "linebreak-style" : 0,
+        "no-alert" : 0,
+        "no-underscore-dangling" : 0
+    }
+}

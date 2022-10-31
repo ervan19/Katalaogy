@@ -1,0 +1,131 @@
+header{
+    @include flexStyle(space-between, row);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $tersiaryColor;
+    padding: 12px 24px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      span svg{
+        width: 24px ;
+      }
+      p{
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+    }
+  
+    nav {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        right: 0;
+        padding: 24px 24px;
+        background-color: $tersiaryColor;
+        display: none;
+        transition: all .3s ease-in-out;
+        color: $secondaryColor;
+        z-index: 10;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+        ul{
+            @include flexStyle(center, column);
+            gap: 32px;
+    
+            li {
+            padding: 4px 12px;
+                a{
+                    display: block;
+                    font-size: 20px;
+                    line-height: 44px;
+                    min-width: 44px;
+                    min-height: 44px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    .open{
+       display: block;;
+    }
+    button:focus{
+        box-shadow: none;
+    }
+    .hamburger-menu{
+      background-color: transparent;
+      box-shadow: none;
+      padding: 12px;
+      display: block;
+      margin: 4px 0;
+      cursor: pointer; 
+      span svg{
+        width: 24px;
+        height: 24px;
+        fill: black;
+      }
+    }
+    .active {
+        span{
+            margin : 6px 0;
+            &:nth-child(1){
+                width: 100%;
+                transform-origin: top left;
+                transform: rotate(45deg);
+            }
+           &:nth-child(2){
+                width: 0;
+            }
+           &:nth-child(3){
+                width: 100%;
+                transform-origin: bottom left;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    @media (min-width: 678px) {
+        &{
+            padding: 16px 40px;
+        }
+        
+        nav{
+            position: static;
+            width: auto;
+            display: block;
+            background-color: transparent;
+            box-shadow: none;
+            padding: 4px;
+            ul{
+                flex-direction: row;
+                gap: 24px;
+
+                li a{
+                    font-size: 16px;
+                }
+                
+            }
+        }
+        button{
+            background-color: transparent;
+        }
+        .hamburger-menu{
+            background-color: transparent;
+            display: none;
+        }
+    }
+    @media (min-width: 1200px){
+        &{
+            box-shadow: none;
+            padding: 16px 12px;
+            margin: 0 auto;
+            width: 1000px;
+           
+        }
+      }
+  }

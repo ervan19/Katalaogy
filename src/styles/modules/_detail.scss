@@ -1,0 +1,234 @@
+.restaurant {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+   .restaurant_{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      max-width: 500px;
+        .restaurant_name{
+          font-size: 40px;
+          margin-bottom: 24px;
+        }
+
+        & img {
+          width: 400px;
+        }
+      
+        h4{
+          margin-top: 24px;
+        }
+  
+    
+   }
+  
+    .restaurant_info{
+      margin-top: 40px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 16px;
+      padding-top: 12px;
+       h4{
+        font-size: 16px;
+        font-weight: 600;
+       }
+      #info{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+
+        .restaurant_rating{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+      
+            svg{
+              width: 24px;
+              height: 24px;
+              color: $primaryColor;
+            }
+          }
+      }
+      
+      h3{
+        font-size: 24px;
+      }
+  
+      #menu {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+
+        h4{ 
+          font-size: 16px;
+          font-weight: 600;
+         }
+
+        h3{
+            font-size: 24px;
+        }
+
+        .menu{
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+      
+        section{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            div{
+                width: 100%;
+            }
+            p{
+              margin-bottom: 16px;
+            }
+            ul {
+              margin-bottom: 4px;
+              
+              li{
+                margin-bottom: 12px;
+              }
+            }
+          }
+      }
+  
+      
+    }
+
+    #description{
+      margin-bottom: 24px;
+      h3{
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+      p{
+        line-height: 24px;
+      }
+    }
+
+    
+    #review{
+        width: 100%;
+        h3{
+            font-size: 24px;
+        }
+        .review_container{
+            width: 100%;
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 24px;
+            
+            .review_card{
+              width: 100%;
+              min-height: 100px;
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+              margin-bottom: 12px;
+              background-color: rgb(230, 230, 230);
+              padding: 12px 24px;
+              border-radius: 12px;
+              h5{
+                font-size: 16px;
+              }
+              span{
+                font-style: italic;
+                font-size: 14px;
+              }
+        
+            }
+        } 
+    }
+
+   
+  
+    @media (min-width : 624px){
+       & {
+            .restaurant_info{
+            #menu {
+                section {
+                    width: 100%;
+                    justify-content: flex-start;
+
+                    div{
+                        width: 100%;
+                    }
+                }
+                }
+            }
+
+        #review{
+            .review_container{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+       }
+    }
+
+
+    @media (min-width : 820px){
+        &{
+            align-items: center;
+            .restaurant_info{
+                align-items: flex-start;
+                flex-direction: row;
+                justify-content: space-between;
+                #info{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 16px;
+                }
+                #menu {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    h3{
+                        font-size: 24px;
+                        text-align: center;
+                    }
+
+                    section div{
+                        width: 100%;
+                    }
+                }
+                .restaurant_rating{
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1000px){
+        &{
+            width: 1000px;
+            margin: 0 auto;
+            form {
+              width: 100px;
+            }
+        }
+    }
+  }
+  

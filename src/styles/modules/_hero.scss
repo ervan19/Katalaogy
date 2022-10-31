@@ -1,0 +1,55 @@
+.hero{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    color: white;
+    padding: 24px;
+    width: 100%;
+    min-height: 400px;
+    margin: 56px 0;
+    background-image: url('/src/public/images/hero.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $secondaryColor;
+      opacity: 60%;
+  
+    }
+    h1 {
+      width: 100%;
+      font-size: 24px;
+      z-index: 1;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      span{
+        color : $primaryColor;
+      }
+    }
+    @media (min-width : 678px) {
+      &{
+        width: 100%;
+        padding: 24px 40px;
+        height: 400px;
+        h1{
+          width: 100%;
+          font-size: 40px;
+        }
+      }
+    }
+    
+    @media (min-width: 1200px){
+      &{
+        margin: 24px auto;
+        padding: 24px 80px;
+        width: 1000px;
+      }
+    }
+  }
+  

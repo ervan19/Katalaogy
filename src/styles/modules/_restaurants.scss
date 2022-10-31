@@ -1,0 +1,143 @@
+#restaurants{
+    @include sectionStyle();
+    margin-top: 40px;
+    padding: 16px;
+    .restaurantsHeading{
+      p{
+        @include headingStyleP();
+      }
+      h2{
+        @include headingStyleH2();
+      }
+    }
+    .card-container{
+      margin-top: 24px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(1, 1fr);
+  
+      .card{
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+        @include flexStyle(flex-start, column);
+        align-items: flex-start;
+        position: relative;
+        .card-image{
+          width: 100%;
+          height: 200px;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+        .content-container{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+        .text-content{
+          padding: 12px;
+          margin-top: 2px;
+          width: 100%;
+          p{
+            margin-top: 4px;
+            font-size: 12px;
+            line-height: 18px;
+            color : $disableColor;
+          }
+        }
+        .card-footer{
+          align-self: flex-end;
+          width: 100%;
+          padding: 12px;
+          @include flexStyle(space-between, row);
+          span svg{
+            width: 24px;
+          }
+          .location{
+            @include flexStyle(center, row);
+            gap: 12px;
+          }
+          .detailBtn_container{
+            @include flexStyle(center, row);
+            border-radius: 4px;
+            min-height: 44px;
+            gap: 4px;
+            padding: 4px 24px;
+            background-color: $primaryColor;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+            a{
+              color: white;
+            }
+            span{
+              @include flexStyle(center, row);
+            }
+
+            &:hover{
+              opacity: .9
+            }
+          }
+        }
+      }
+
+      .rate {
+        @include flexStyle(center, row);
+        gap: 8px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        background-color: white;
+        span svg{
+          width: 24px;
+          fill: $primaryColor
+        }
+        p{
+          font-weight: 600;
+        }
+      }
+    }
+    @media (min-width : 678px){
+      &{
+        padding: 24px 40px;
+        min-height: 400px;
+        .restaurantsHeading{
+          p{
+            font-size: 20px;
+          }
+          h2{
+            font-size: 32px;
+            letter-spacing: 2px;
+          }
+        }
+      }
+      .card-container{
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width : 1000px){
+        .card-container{
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    @media (min-width : 1200px){
+      &{
+        padding: 24px 80px;
+        width: 1000px;
+        margin: 0 auto;
+        margin-bottom: 0;
+      }
+      .card-container{
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+      }
+    }
+  }
+  

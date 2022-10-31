@@ -1,0 +1,115 @@
+#jumbotron{
+    @include flexStyle(center, column);
+    margin-top: 120px;
+    gap: 40px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 16px;
+    text-align:center;
+    text-transform: capitalize;
+    article {
+      @include flexStyle(flex-start, column);
+
+      width: 100%;
+      order: 2;
+      h2{
+        font-size: 20px;
+        margin-bottom: 16px;
+        font-weight: 800;
+        line-height: 36px;
+        span{
+          color: $primaryColor;
+        }
+      }
+      p {
+        font-size: 14px;
+        line-height: 24px;
+        width: 100%;
+        margin: 0 auto;
+        color: $disableColor;
+      }
+      a{
+        font-size: 16px;
+        font-weight: 500;
+        color: white;
+        background-color: $primaryColor;
+        padding: 12px 24px;
+        margin-top: 28px;
+        border-radius: 4px;
+      }
+      
+  
+    }
+    aside{
+      order: 1;
+      width: 50%;
+      position: relative;
+      span{
+        img{
+          width: 100%;
+        }
+        &::after{
+          content: "";
+          position: absolute;
+          top: -20px;
+          bottom: 20px;
+          right: -20px;
+          display: inline-block;
+          width: 100%;
+          background: $secondaryColor;
+          z-index: -1;
+        }
+      }
+     
+    }
+    
+    @media (max-width : 370px){
+      article{
+        h2{
+          font-size: 24px;
+        }
+      }
+    }
+    @media (min-width : 678px){
+      &{
+        padding: 24px 40px;
+        min-height: 400px;
+        @include flexStyle(space-between, row);
+        text-align: left;
+        article{
+          align-items: flex-start;
+          order : 1;
+          width: 60%;
+          h2{
+            font-size: 32px;
+            line-height: 48px;
+          }
+          p{
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+        aside{
+          width: 30%;
+        }
+      }
+    }
+    @media (min-width: 1200px){
+      &{
+          padding: 24px 80px;
+          margin: 120px auto;
+          margin-bottom: 0;
+          width: 1000px;
+          article{
+            width: 70%;
+            h2{
+              font-size: 28px;
+            }
+            p{
+              font-size: 14px;
+            }
+          }
+      }
+    }
+  }
+  

@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+@import "./modules/mixin";
+@import './modules/variables';
+@import './modules/navbar';
+@import './modules/jumbotron';
+@import './modules/hero';
+@import './modules/gallery';
+@import './modules/restaurants';
+@import './modules/footer';
+@import './modules/detail';
+
+*, html, body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  background-color:$tersiaryColor;
+  color: $secondaryColor;
+  font-family:  'Albert Sans', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+a{
+  text-decoration: none;
+  color: $secondaryColor;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  &:hover{
+    color: $primaryColor;
+  }
+}
+input, textarea {
+  padding: 12px 16px;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid black;
+  font-family:'Albert Sans', sans-serif ;
+  font-size: 16px;
+}
+::placeholder{
+  font-family:  'Albert Sans', sans-serif;
+  font-size: 16px;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.skip-link{
+  position: absolute;
+  padding: 8px;
+  background-color: $secondaryColor;
+  color: $tersiaryColor;
+  top: -40px;
+  left: 4px;
+  z-index: 100;
+  border-radius: 4px;
+  &:focus{
+    top: 4px;
+  }
+}
+button {
+  padding: 12px 24px;
+  background-color: $primaryColor;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+  outline: none;
+  border: none;
+  margin-top: 24px;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  &:hover{
+    opacity: .8;
+  }
+  &:focus{
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.like {
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: $primaryColor;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+form {
+  width: 100%;
+  @include flexStyle(center, column);
+  padding: 24px 40px;
+  gap: 16px;
+  margin: 0 auto;
+  .input_field{
+    @include flexStyle(flex-start, column);
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    font-size: 16px;
+
+    label{
+      font-weight: 500;
+    }
+
+    input{
+      width: 100%;
+    }
+
+    textarea{
+      width: 100%;
+      height: 250px;
+      resize: none;
+    }
+  
+  }
+  button{
+    border-radius: 12px;
+    width: 100%;
+    padding: 12px 24px;
+   }
+}
+
+@media (min-width: 1000px) {
+    form{
+      width: 1000px;
+      margin: 40px auto;
+      .input_field{
+        width: 600px;
+      }
+
+      button{
+        width: max-content;
+      }
+    }
+}
