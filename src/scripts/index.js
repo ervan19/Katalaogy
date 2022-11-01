@@ -1,8 +1,8 @@
 import "regenerator-runtime";
 import "../styles/style.scss";
-import "./view/components/header_brand";
-import "./view/components/header_link";
-import "./view/components/navbar";
+import "./view/components/headerBrand/header_brand";
+import "./view/components/headerLink/header_link";
+import "./view/components/navbar/navbar";
 import swRegister from "./utils/sw-register";
 import App from "./view/app";
 
@@ -16,7 +16,7 @@ window.addEventListener("hashchange", () => {
   app.renderPage();
 });
 
-window.addEventListener("load", async () => {
+window.addEventListener("DOMContentLoaded", async () => {
   app.renderPage();
   await swRegister();
 });

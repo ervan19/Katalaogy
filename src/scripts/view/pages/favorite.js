@@ -1,5 +1,5 @@
 import FavoriteRestaurantIdb from "../../data/favorite-restaurant-idb";
-import createRestaurantCard from "../templates/cardTemplate";
+import createRestaurantCard from "../templates/createRestaurantCard";
 
 const FavoritePage = {
   async render() {

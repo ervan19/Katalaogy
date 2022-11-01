@@ -1,6 +1,6 @@
 import RestaurantsSource from "../../data/restaurants-source";
-import createGalleryTemplate from "../templates/galleryTemplate";
-import createRestaurantCard from "../templates/cardTemplate";
+import createGalleryTemplate from "../templates/createGalleryTemplate";
+import createRestaurantCard from "../templates/createRestaurantCard";
 
 const HomePage = {
   async render() {

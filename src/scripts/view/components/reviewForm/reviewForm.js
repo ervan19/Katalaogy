@@ -1,5 +1,5 @@
-import RestaurantsSource from "../../data/restaurants-source";
-import UrlParser from "../../routes/url-parser";
+import RestaurantsSource from "../../../data/restaurants-source";
+import UrlParser from "../../../routes/url-parser";
 
 class ReviewForm extends HTMLElement {
   constructor() {
@@ -17,10 +17,10 @@ class ReviewForm extends HTMLElement {
       }
     });
 
-    this.addEventListener("submit", async (event) => {
+    this.addEventListener("click", async (event) => {
       event.preventDefault();
       const elementTarget = event.target;
-      if (elementTarget.classList.contains("review_form")) {
+      if (elementTarget.classList.contains("review_form_button")) {
         await this.onSubmitHandler();
       }
     });
@@ -40,41 +40,6 @@ class ReviewForm extends HTMLElement {
     this._review = value;
   }
 
-  async updatePostReview(restaurantID) {
-    const restaurantDataUpdate = await RestaurantsSource.detailRestaurant(
-      restaurantID
-    );
-
-    return restaurantDataUpdate;
-  }
-
-  async dispatchReviewSubmitEvent(updatedPostReview) {
-    this.dispatchEvent(
-      new CustomEvent("review-submit", {
-        bubbles: true,
-        detail: updatedPostReview.restaurant.customerReviews,
-      })
-    );
-  }
-
-  async onReviewSubmit(review) {
-    try {
-      await RestaurantsSource.addReview(review).then(async () => {
-        const reviewUpdate = await this.updatePostReview(this._id);
-        const dispatchSubmit = await this.dispatchReviewSubmitEvent(
-          reviewUpdate
-        );
-
-        return dispatchSubmit;
-      });
-    } catch (err) {
-      console.log(err);
-    }
-
-    this._name = "";
-    this._review = "";
-  }
-
   async onSubmitHandler() {
     const review = {
       id: this._id,
@@ -88,7 +53,7 @@ class ReviewForm extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <form class="review_form">
+    <form >
         <h2>Add Reviews</h2>
         <div class="input_field">
             <label for="name">Name :</label>
@@ -110,7 +75,7 @@ class ReviewForm extends HTMLElement {
             value="${this._review}"
             placeholder="Your review here.."></textarea>
         </div>
-        <button type="submit">Add Review</button>
+        <button type="submit" class="review_form_button">Add Review</button>
     </form>
     `;
   }

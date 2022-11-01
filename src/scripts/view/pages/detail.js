@@ -1,8 +1,8 @@
 import UrlParser from "../../routes/url-parser";
 import RestaurantsSource from "../../data/restaurants-source";
-import createDetailRestaurantTemplate from "../templates/detailTemplate";
+import createDetailRestaurantTemplate from "../templates/createDetailRestaurantTemplate";
 import LikeButtonInitiator from "../../utils/like-button-initiator";
-import "../components/reviewForm";
+import "../components/reviewForm/reviewForm";
 
 const Detail = {
   async render() {

@@ -1,14 +1,43 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-restricted-globals */
+import regeneratorRuntime from "regenerator-runtime";
+import { registerRoute } from "workbox-routing";
 import { precacheAndRoute } from "workbox-precaching";
-import workbox from "workbox-webpack-plugin";
+import { ExpirationPlugin } from "workbox-expiration";
+import { CacheFirst, NetworkFirst } from "workbox-strategies";
+import { skipWaiting, clientsClaim, setCacheNameDetails } from "workbox-core";
+
+skipWaiting();
+clientsClaim();
+
+setCacheNameDetails({
+  prefix: "comfy-resto",
+  precache: "precache",
+});
 
 precacheAndRoute(self.__WB_MANIFEST);
 
-self.addEventListener("install", () => {
-  console.log("Service Worker: Installed");
-  self.skipWaiting();
-});
+registerRoute(
+  /^https:\/\/restaurant-api\.dicoding\.dev\//,
+  new NetworkFirst({
+    cacheName: "restaurant-api",
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 30 * 24 * 60 * 60,
+      }),
+    ],
+  })
+);
 
-workbox.routing.registerRoute(
-  /(\/|\.html)$/,
-  new workbox.strategies.NetworkFirst()
+registerRoute(
+  /\.(?:png|jpx|css|svg)$/,
+  new CacheFirst({
+    cacheName: "comfy-resto-images",
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 30 * 24 * 60 * 60,
+        maxEntries: 30,
+      }),
+    ],
+  })
 );

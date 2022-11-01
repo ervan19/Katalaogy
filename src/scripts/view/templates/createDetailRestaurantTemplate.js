@@ -63,7 +63,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
   </section>
 
   <section id="review">
-    <h3>Customer Review</h3>
+    <h3>Customer Review</h3> 
     <div class="review_container">
     ${restaurant.customerReviews
       .map((review) => {
