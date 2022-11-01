@@ -17,7 +17,11 @@ class Brand extends HTMLElement {
           </defs>
           </svg>
         </span>      
+<<<<<<< HEAD
         <p class="Brand Title" tab-index="0">Katalaogy</p>
+=======
+        <p class="Brand Title" tabindex="0">Katalaogy</p>
+>>>>>>> 67b1175 (Configuration sw.js)
       </div>
      `;
   }
