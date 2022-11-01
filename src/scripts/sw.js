@@ -2,8 +2,7 @@ import regeneratorRuntime from "regenerator-runtime";
 import { registerRoute } from "workbox-routing";
 import { precacheAndRoute } from "workbox-precaching";
 import { ExpirationPlugin } from "workbox-expiration";
-import {  NetworkFirst } from "workbox-strategies";
-
+import { NetworkFirst } from "workbox-strategies";
 
 precacheAndRoute(self.__WB_MANIFEST);
 
