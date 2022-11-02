@@ -67,7 +67,7 @@ class ReviewForm extends HTMLElement {
             placeholder="Your name here.."
             tabindex="0"/>
         </div >
-        <div id="review" class="input_field" resize="none">
+        <div id="review" class="input_field">
             <label for="review" tabindex="0">Review :</label>
             <textarea 
             name="review" 
@@ -76,7 +76,8 @@ class ReviewForm extends HTMLElement {
             class="form_input_review"
             value="${this._review}"
             placeholder="Your review here.."
-            tabindex="0"></textarea>
+            tabindex="0"
+            resize="none"></textarea>
         </div>
         <button type="submit" tabindex="0">Add Review</button>
     </form>

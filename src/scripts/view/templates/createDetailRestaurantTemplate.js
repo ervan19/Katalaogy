@@ -1,4 +1,5 @@
 import CONFIG from "../../globals/config";
+import "../components/reviewForm/reviewForm";
 
 const createDetailRestaurantTemplate = (restaurant) => `
     
@@ -64,6 +65,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
   <section id="review">
     <h3 tabindex="0">Customer Review</h3> 
   </section>
+  <form-review></form-review>
 
 `;
 

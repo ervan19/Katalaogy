@@ -4,14 +4,14 @@ import createDetailRestaurantTemplate from "../templates/createDetailRestaurantT
 import LikeButtonInitiator from "../../utils/like-button-initiator";
 import "../components/reviewForm/reviewForm";
 import createReviewTemplate from "../templates/createReviewTemplate";
+import createNotFoundTemplate from "../templates/createNotFoundTemplate";
 
 const Detail = {
   async render() {
     return `
       <div id="restaurant" class="restaurant" autoscroll="true">
-        <p>loading</p>
+        <p class="loading">loading</p>
       </div>
-      <form-review></form-review>
       <div id="likeButtonContainer"></div>
     `;
   },
@@ -35,26 +35,31 @@ const Detail = {
       }, 1);
     }
 
-    const restaurant = await RestaurantsSource.detailRestaurant(url.id);
+    try {
+      const restaurant = await RestaurantsSource.detailRestaurant(url.id);
+      const restaurantContainer = document.querySelector(".restaurant");
 
-    const restaurantContainer = document.querySelector(".restaurant");
+      restaurantContainer.innerHTML =
+        createDetailRestaurantTemplate(restaurant);
 
-    restaurantContainer.innerHTML = createDetailRestaurantTemplate(restaurant);
+      const review = document.querySelector("#review");
+      review.innerHTML += createReviewTemplate(restaurant);
 
-    const review = document.querySelector("#review");
-    review.innerHTML = createReviewTemplate(restaurant);
-
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector("#likeButtonContainer"),
-      restaurant: {
-        id: restaurant.id,
-        name: restaurant.name,
-        pictureId: restaurant.pictureId,
-        description: restaurant.description,
-        rating: restaurant.rating,
-        city: restaurant.city,
-      },
-    });
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector("#likeButtonContainer"),
+        restaurant: {
+          id: restaurant.id,
+          name: restaurant.name,
+          pictureId: restaurant.pictureId,
+          description: restaurant.description,
+          rating: restaurant.rating,
+          city: restaurant.city,
+        },
+      });
+    } catch {
+      const restaurantContainer = document.querySelector(".restaurant");
+      restaurantContainer.innerHTML = createNotFoundTemplate();
+    }
   },
 };
 
