@@ -2,24 +2,67 @@ import regeneratorRuntime from "regenerator-runtime";
 import { registerRoute } from "workbox-routing";
 import { precacheAndRoute } from "workbox-precaching";
 import { ExpirationPlugin } from "workbox-expiration";
-import { NetworkFirst } from "workbox-strategies";
+import { CacheableResponsePlugin } from "workbox-cacheable-response";
+import { CacheFirst, NetworkFirst } from "workbox-strategies";
+import { skipWaiting, clientsClaim, setCacheNameDetails } from "workbox-core";
 
-precacheAndRoute(self.__WB_MANIFEST);
+skipWaiting();
+clientsClaim();
 
-self.addEventListener("install", () => {
-  console.log("Service Worker: Installed");
-  self.skipWaiting();
+setCacheNameDetails({
+  prefix: "restaurant",
+  precache: "precache",
 });
+
+precacheAndRoute(
+  [
+    ...self.__WB_MANIFEST,
+    {
+      url: "https://kit.fontawesome.com/dc1bf0123a.js",
+      revision: 1,
+    },
+  ],
+  {
+    ignoreURLParametersMatching: [/.*/],
+  }
+);
 
 registerRoute(
   /^https:\/\/restaurant-api\.dicoding\.dev\/(?:(list|detail))/,
   new NetworkFirst({
-    cacheName: "api-cache",
+    cacheName: "restaurant-api-dicoding",
     plugins: [
-      // Don't cache more than 100 items, and expire them after 30 days
       new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 30,
-        maxEntries: 100,
+        maxAgeSeconds: 30 * 24 * 60 * 60,
+      }),
+    ],
+  })
+);
+
+registerRoute(
+  /.*(?:googleapis|gstatic)\.com/,
+  new CacheFirst({
+    cacheName: "google-fonts",
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 30,
+      }),
+    ],
+  })
+);
+
+registerRoute(
+  /\.(?:png|jpx|css|svg)$/,
+  new CacheFirst({
+    cacheName: "restaurant-images",
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 30 * 24 * 60 * 60,
+        maxEntries: 30,
       }),
     ],
   })

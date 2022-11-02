@@ -63,19 +63,6 @@ const createDetailRestaurantTemplate = (restaurant) => `
 
   <section id="review">
     <h3 tabindex="0">Customer Review</h3> 
-    <div class="review_container">
-    ${restaurant.customerReviews
-      .map((review) => {
-        return `
-        <div class="review_card" tabindex="0">
-          <h5 >${review.name}</h5>
-          <span >${review.date}</span>
-          <p >${review.review}</p>
-        </div>
-      `;
-      })
-      .join(" ")}
-      </div>
   </section>
 
 `;

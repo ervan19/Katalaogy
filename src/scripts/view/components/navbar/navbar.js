@@ -1,8 +1,8 @@
 class NavBar extends HTMLElement {
   connectedCallback() {
-    this.renderElement();
+    this.render();
   }
-  renderElement() {
+  render() {
     this.innerHTML = `
     <header>
        <header-brand></header-brand>

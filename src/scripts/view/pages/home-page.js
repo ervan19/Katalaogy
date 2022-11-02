@@ -1,5 +1,5 @@
 import RestaurantsSource from "../../data/restaurants-source";
-import createGalleryTemplate from "../templates/createGalleryTemplate";
+import "../components/gallery/gallery";
 import createRestaurantCard from "../templates/createRestaurantCard";
 
 const HomePage = {
@@ -26,6 +26,7 @@ const HomePage = {
       <p tabindex="0">Food Gallery</p>
       <h2 tabindex="0">Various Food Galleries</h2>
     </div>
+    <gallery-resto></gallery-resto>
   </section>
 
     <section id="restaurants">
@@ -40,10 +41,7 @@ const HomePage = {
   },
 
   async afterRender() {
-    const foodGalleryContainer = document.querySelector("#foodGallery");
-
     const cardContainer = document.querySelector(".card-container");
-    foodGalleryContainer.innerHTML += createGalleryTemplate();
 
     const restaurants = await RestaurantsSource.restaurantsList();
     restaurants.forEach((restaurant) => {

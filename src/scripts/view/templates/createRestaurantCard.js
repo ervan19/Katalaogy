@@ -19,31 +19,30 @@ const createRestaurantCard = (restaurant) =>
   } tabindex="0" aria-label="Restraurant Image">
       </div>
       <div class="content-container">
-      <div class="text-content">
-        <h3 tabindex="0">${restaurant.name}</h3>
-        <p tabindex="0">${restaurant.description}</p>
-      </div>
-      <div class="card-footer">
-        <div class="location" aria-label="city" tabindex="0">
-          <span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-            </svg>
-          </span>
-          <p tabindex="0" >${restaurant.city}</p>
+        <div class="text-content">
+          <h3 tabindex="0">${restaurant.name}</h3>
+          <p tabindex="0">${restaurant.description}</p>
         </div>
-        <a href="#/detail/${
-          restaurant.id
-        }" class="detailBtn_container">Detail  <span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-           <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-        </svg>
-        </span>
-        </a>
+        <div class="card-footer">
+          <div class="location" aria-label="city" tabindex="0">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </span>
+            <p tabindex="0" >${restaurant.city}</p>
+          </div>
+          <a href="#/detail/${
+            restaurant.id
+          }" class="detailBtn_container">Detail  <span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+            </svg>
+            </span>
+          </a>
+        </div>
       </div>
-      </div>
-      
   </div>
   `;
 export default createRestaurantCard;

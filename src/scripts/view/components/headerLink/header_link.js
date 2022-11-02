@@ -1,9 +1,9 @@
 class HeaderLink extends HTMLElement {
   connectedCallback() {
-    this.renderElement();
+    this.render();
   }
 
-  renderElement() {
+  render() {
     this.innerHTML = `
       <ul>
         <li><a href="/" tabindex="0">Home</a></li>

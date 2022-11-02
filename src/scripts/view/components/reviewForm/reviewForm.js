@@ -17,10 +17,10 @@ class ReviewForm extends HTMLElement {
       }
     });
 
-    this.addEventListener("click", async (event) => {
+    this.addEventListener("submit", async (event) => {
       event.preventDefault();
       const elementTarget = event.target;
-      if (elementTarget.classList.contains("review_form_button")) {
+      if (elementTarget.classList.contains("review_form")) {
         await this.onSubmitHandler();
       }
     });
@@ -47,13 +47,14 @@ class ReviewForm extends HTMLElement {
       review: this._review,
     };
 
-    await RestaurantsSource.addReview(review);
-    location.reload();
+    await RestaurantsSource.addReview(review).then(() => {
+      location.reload();
+    });
   }
 
   render() {
     this.innerHTML = `
-    <form tabindex="0" >
+    <form tabindex="0" class="review_form" >
         <h2 tabindex="0">Add Reviews</h2>
         <div class="input_field" tabindex="0">
             <label for="name" tabindex="0">Name :</label>
@@ -77,7 +78,7 @@ class ReviewForm extends HTMLElement {
             placeholder="Your review here.."
             tabindex="0"></textarea>
         </div>
-        <button type="submit" class="review_form_button" tabindex="0">Add Review</button>
+        <button type="submit" tabindex="0">Add Review</button>
     </form>
     `;
   }

@@ -1,9 +1,9 @@
 class Brand extends HTMLElement {
   connectedCallback() {
-    this.renderElement();
+    this.render();
   }
 
-  renderElement() {
+  render() {
     this.innerHTML = `
         <div class="logo">
         <span>
