@@ -28,7 +28,7 @@ precacheAndRoute(
 );
 
 registerRoute(
-  /^https:\/\/restaurant-api\.dicoding\.dev\/(?:(list|detail))/,
+  /^https:\/\/restaurant-api\.dicoding\.dev\/(?:(detail))/,
   new NetworkFirst({
     cacheName: "restaurant-api-dicoding",
     plugins: [
