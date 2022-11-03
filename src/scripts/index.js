@@ -3,6 +3,7 @@ import "../styles/style.scss";
 import "./view/components/headerBrand/header_brand";
 import "./view/components/headerLink/header_link";
 import "./view/components/navbar/navbar";
+import "./view/components/footerContainer/footerContainer";
 import swRegister from "./utils/sw-register";
 import App from "./view/app";
 

@@ -1,15 +1,8 @@
 #restaurants{
     @include sectionStyle();
     margin-top: 40px;
-    padding: 16px;
-    .restaurantsHeading{
-      p{
-        @include headingStyleP();
-      }
-      h2{
-        @include headingStyleH2();
-      }
-    }
+    padding: 24px;
+    
     .card-container{
       margin-top: 24px;
       display: grid;
@@ -109,15 +102,6 @@
       &{
         padding: 24px 40px;
         min-height: 400px;
-        .restaurantsHeading{
-          p{
-            font-size: 20px;
-          }
-          h2{
-            font-size: 32px;
-            letter-spacing: 2px;
-          }
-        }
       }
       .card-container{
         grid-template-columns: repeat(2, 1fr);

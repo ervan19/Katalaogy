@@ -1,30 +1,15 @@
 import RestaurantsSource from "../../data/restaurants-source";
-import "../components/gallery/gallery";
 import "../components/hero/hero";
-import "../components/jumbotron/jumbotron";
+import "../components/galleryContainer/galleryContainer";
+import "../components/restaurantContainer/restaurantContainer";
 import createRestaurantCard from "../templates/createRestaurantCard";
 
 const HomePage = {
   async render() {
     return `
       <hero-element></hero-element>
-      <jumbotron-element></jumbotron-element>
-      <section id="foodGallery">
-        <div class="galleryHeading">
-          <p tabindex="0">Food Gallery</p>
-          <h2 tabindex="0">Various Food Galleries</h2>
-        </div>
-        <gallery-resto></gallery-resto>a
-      </section>
-
-      <section id="restaurants">
-          <article class="restaurantsHeading">
-          <p tabindex="0">Restaurant List</p>
-          <h2 tabindex="0">Various Restaurant List</h2>
-          </article>
-          <article class="card-container" >
-          </article>
-      </section>
+      <gallery-container></gallery-container>
+      <restaurant-container></restaurant-container>
     `;
   },
 

@@ -62,7 +62,7 @@ li {
   padding: 8px;
   background-color: $secondaryColor;
   color: $tersiaryColor;
-  top: -40px;
+  top: -100px;
   left: 4px;
   z-index: 100;
   border-radius: 4px;
@@ -109,3 +109,23 @@ button {
 }
 
 
+.sectionHeading{
+  p{
+    @include headingStyleP();
+  }
+  h2{
+    @include headingStyleH2();
+  }
+}
+
+@media (min-width : 678px){
+  .sectionHeading{
+    p{
+      font-size: 20px;
+    }
+    h2{
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+  }
+}

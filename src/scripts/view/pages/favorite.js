@@ -6,7 +6,7 @@ const FavoritePage = {
   async render() {
     return `
         <section id="restaurants">
-          <article class="restaurantsHeading">
+          <article class="sectionHeading">
           <h2 tabindex="0">Your Favorite Restaurants</h2>
           </article>
           <article class="card-container" >
