@@ -7,60 +7,60 @@ import createReviewTemplate from "../templates/createReviewTemplate";
 import createNotFoundTemplate from "../templates/createNotFoundTemplate";
 
 const Detail = {
-  async render() {
-    return `
+    async render() {
+        return `
       <div id="restaurant" class="restaurant" autoscroll="true">
         <p class="loading">loading</p>
       </div>
       <div id="likeButtonContainer"></div>
     `;
-  },
+    },
 
-  async afterRender() {
-    let fontAwesomeScriptElement = document.querySelector(
-      'script[src="https://kit.fontawesome.com/dc1bf0123a.js"]'
-    );
+    async afterRender() {
+        let fontAwesomeScriptElement = document.querySelector(
+            "script[src=\"https://kit.fontawesome.com/dc1bf0123a.js\"]",
+        );
 
-    if (!fontAwesomeScriptElement) {
-      fontAwesomeScriptElement = document.createElement("script");
-      fontAwesomeScriptElement.src =
+        if (!fontAwesomeScriptElement) {
+            fontAwesomeScriptElement = document.createElement("script");
+            fontAwesomeScriptElement.src =
         "https://kit.fontawesome.com/dc1bf0123a.js";
-      document.body.appendChild(fontAwesomeScriptElement);
-    }
+            document.body.appendChild(fontAwesomeScriptElement);
+        }
 
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    if (location.hash) {
-      setTimeout(function () {
-        window.scrollTo(0, 0);
-      }, 1);
-    }
+        const url = UrlParser.parseActiveUrlWithoutCombiner();
+        if (location.hash) {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 1);
+        }
 
-    try {
-      const restaurant = await RestaurantsSource.detailRestaurant(url.id);
-      const restaurantContainer = document.querySelector(".restaurant");
+        try {
+            const restaurant = await RestaurantsSource.detailRestaurant(url.id);
+            const restaurantContainer = document.querySelector(".restaurant");
 
-      restaurantContainer.innerHTML =
+            restaurantContainer.innerHTML =
         createDetailRestaurantTemplate(restaurant);
 
-      const review = document.querySelector("#review");
-      review.innerHTML += createReviewTemplate(restaurant);
+            const review = document.querySelector("#review");
+            review.innerHTML += createReviewTemplate(restaurant);
 
-      LikeButtonInitiator.init({
-        likeButtonContainer: document.querySelector("#likeButtonContainer"),
-        restaurant: {
-          id: restaurant.id,
-          name: restaurant.name,
-          pictureId: restaurant.pictureId,
-          description: restaurant.description,
-          rating: restaurant.rating,
-          city: restaurant.city,
-        },
-      });
-    } catch {
-      const restaurantContainer = document.querySelector(".restaurant");
-      restaurantContainer.innerHTML = createNotFoundTemplate();
-    }
-  },
+            LikeButtonInitiator.init({
+                likeButtonContainer: document.querySelector("#likeButtonContainer"),
+                restaurant: {
+                    id: restaurant.id,
+                    name: restaurant.name,
+                    pictureId: restaurant.pictureId,
+                    description: restaurant.description,
+                    rating: restaurant.rating,
+                    city: restaurant.city,
+                },
+            });
+        } catch {
+            const restaurantContainer = document.querySelector(".restaurant");
+            restaurantContainer.innerHTML = createNotFoundTemplate();
+        }
+    },
 };
 
 export default Detail;

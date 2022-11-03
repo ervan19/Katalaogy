@@ -1,10 +1,10 @@
 class Brand extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
+    connectedCallback() {
+        this.render();
+    }
 
-  render() {
-    this.innerHTML = `
+    render() {
+        this.innerHTML = `
       <div class="logo">
         <span>
           <svg width="51" height="48" viewBox="0 0 51 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,7 @@ class Brand extends HTMLElement {
         <p class="Brand Title" tabindex="0">Katalaogy</p>
     </div>
     `;
-  }
+    }
 }
 
 customElements.define("header-brand", Brand);

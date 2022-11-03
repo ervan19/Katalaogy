@@ -6,8 +6,8 @@ const createDetailRestaurantTemplate = (restaurant) => `
     <div class="restaurant_">
     <h2 class="restaurant_name" tabindex="0">${restaurant.name}</h2>
       <img class="resturant_picture" src="${
-        CONFIG.BASE_IMAGE_URL + restaurant.pictureId
-      }" alt="${restaurant.name}" tabindex="0" aria-label="Restaurant image"/>
+    CONFIG.BASE_IMAGE_URL + restaurant.pictureId
+}" alt="${restaurant.name}" tabindex="0" aria-label="Restaurant image"/>
     </div>
     </div>
       <div class="restaurant_info">
@@ -18,7 +18,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
       <h4 tabindex="0">Category</h4>
       <p tabindex="0">${restaurant.categories
         .map((category) => {
-          return category.name;
+            return category.name;
         })
         .join(" | ")}</p>
       <h4 tabindex="0">Rating</h4>
@@ -36,20 +36,20 @@ const createDetailRestaurantTemplate = (restaurant) => `
           <h4 class="menu" tabindex="0">Foods</h4>
           <ul tabindex="0">
           ${restaurant.menus.foods
-            .map((food) => {
-              return `<li>| ${food.name}</li>`;
-            })
-            .join(" ")}
+        .map((food) => {
+            return `<li>| ${food.name}</li>`;
+        })
+        .join(" ")}
           </ul>
         </div>
         <div>
           <h4 class="menu" tabindex="0">Drinks</h4>
           <ul tabindex="0">
           ${restaurant.menus.drinks
-            .map((drink) => {
-              return `<li>| ${drink.name}</li>`;
-            })
-            .join(" ")}
+        .map((drink) => {
+            return `<li>| ${drink.name}</li>`;
+        })
+        .join(" ")}
           </ul>
         </div>
     </section>

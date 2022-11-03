@@ -15,8 +15,18 @@
         "eqeqeq" : ["error", "always"],
         "quotes" : ["error", "double"],
         "no-console" : 0,
-        "linebreak-style" : 0,
         "no-alert" : 0,
-        "no-underscore-dangling" : 0
+        "no-underscore-dangling" : 0,
+        "indent" : [1,4],
+        "max-len": ["error", { "code": 400 }],
+        "require-jsdoc": ["error", {
+            "require": {
+                "FunctionDeclaration": true,
+                "MethodDefinition": false,
+                "ClassDeclaration": false,
+                "ArrowFunctionExpression": false,
+                "FunctionExpression": false
+            }
+        }]
     }
 }

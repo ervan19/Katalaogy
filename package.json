@@ -8,6 +8,8 @@
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist --port 9000",
     "build-serve": "npm run build && npm run serve",
+    "lint": "eslint ./src ",
+    "fix": "eslint ./src --fix",
     "test": "karma start"
   },
   "keywords": [],

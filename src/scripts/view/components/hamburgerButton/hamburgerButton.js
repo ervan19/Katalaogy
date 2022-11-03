@@ -1,10 +1,10 @@
 class HamburgerButton extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
+    connectedCallback() {
+        this.render();
+    }
 
-  render() {
-    this.innerHTML = `
+    render() {
+        this.innerHTML = `
         <button class="hamburger-menu" tabindex="0" aria-label="hamburger menu">
             <span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#0C0D22" class="w-6 h-6">
@@ -13,7 +13,7 @@ class HamburgerButton extends HTMLElement {
             </span>
         </button>
     `;
-  }
+    }
 }
 
 customElements.define("hamburger-button", HamburgerButton);

@@ -1,10 +1,10 @@
 class FooterLink extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
+    connectedCallback() {
+        this.render();
+    }
 
-  render() {
-    this.innerHTML = `
+    render() {
+        this.innerHTML = `
         <div class="footer-link" >
             <ul >
             <li><a href="#" tabindex="0">Home</a></li>
@@ -15,7 +15,7 @@ class FooterLink extends HTMLElement {
             </ul>
         </div>
     `;
-  }
+    }
 }
 
 customElements.define("footer-link", FooterLink);

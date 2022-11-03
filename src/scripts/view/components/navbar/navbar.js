@@ -1,11 +1,11 @@
 import "../hamburgerButton/hamburgerButton";
 
 class NavBar extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
-  render() {
-    this.innerHTML = `
+    connectedCallback() {
+        this.render();
+    }
+    render() {
+        this.innerHTML = `
     <header>
       <header-brand></header-brand>
       <hamburger-button></hamburger-button>
@@ -14,7 +14,7 @@ class NavBar extends HTMLElement {
       </nav>
     </header>
     `;
-  }
+    }
 }
 
 customElements.define("nav-bar", NavBar);

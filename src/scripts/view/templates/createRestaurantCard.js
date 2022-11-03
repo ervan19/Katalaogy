@@ -1,10 +1,10 @@
 import CONFIG from "../../globals/config";
 
 const createRestaurantCard = (restaurant) =>
-  `
+    `
   <div class="card" id=${
     restaurant.id
-  } tabindex="0" aria-label="restaurant card">
+} tabindex="0" aria-label="restaurant card">
   <div class="rate" aria-label="restaurant-rating" tabindex="0">
       <span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -16,7 +16,7 @@ const createRestaurantCard = (restaurant) =>
       <div class="card-image">
         <img src=${CONFIG.BASE_IMAGE_URL + restaurant.pictureId} alt=${
     restaurant.name
-  } tabindex="0" aria-label="Restraurant Image">
+} tabindex="0" aria-label="Restraurant Image">
       </div>
       <div class="content-container">
         <div class="text-content">
@@ -34,8 +34,8 @@ const createRestaurantCard = (restaurant) =>
             <p tabindex="0" >${restaurant.city}</p>
           </div>
           <a href="#/detail/${
-            restaurant.id
-          }" class="detailBtn_container">Detail  <span>
+    restaurant.id
+}" class="detailBtn_container">Detail  <span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>

@@ -1,10 +1,10 @@
 class FooterBrand extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
+    connectedCallback() {
+        this.render();
+    }
 
-  render() {
-    this.innerHTML = `
+    render() {
+        this.innerHTML = `
         <div class="footer-logo" >
             <span tabindex="0">
                 <svg width="51" height="48" viewBox="0 0 51 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,7 @@ class FooterBrand extends HTMLElement {
             <p class="Brand Title" tabindex="0">Katalaogy</p>
         </div>
         `;
-  }
+    }
 }
 
 customElements.define("footer-brand", FooterBrand);

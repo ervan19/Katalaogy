@@ -1,10 +1,10 @@
 class Gallery extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
+    connectedCallback() {
+        this.render();
+    }
 
-  render() {
-    this.innerHTML = `
+    render() {
+        this.innerHTML = `
         <div class="gallery" tabindex="0" aria-label="galery card">
         <div class="myGallery" >
             <img src="/images/image1.jpg" alt="image 1" tabindex="0">
@@ -50,7 +50,7 @@ class Gallery extends HTMLElement {
         </div>
         </div>
     `;
-  }
+    }
 }
 
 customElements.define("gallery-resto", Gallery);

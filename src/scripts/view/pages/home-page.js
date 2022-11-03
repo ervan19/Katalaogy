@@ -5,29 +5,29 @@ import "../components/restaurantContainer/restaurantContainer";
 import createRestaurantCard from "../templates/createRestaurantCard";
 
 const HomePage = {
-  async render() {
-    return `
+    async render() {
+        return `
       <hero-element></hero-element>
       <gallery-container></gallery-container>
       <restaurant-container></restaurant-container>
     `;
-  },
+    },
 
-  async afterRender() {
-    const cardContainer = document.querySelector(".card-container");
+    async afterRender() {
+        const cardContainer = document.querySelector(".card-container");
 
-    const restaurants = await RestaurantsSource.restaurantsList();
-    restaurants.forEach((restaurant) => {
-      cardContainer.innerHTML += createRestaurantCard(restaurant);
-    });
+        const restaurants = await RestaurantsSource.restaurantsList();
+        restaurants.forEach((restaurant) => {
+            cardContainer.innerHTML += createRestaurantCard(restaurant);
+        });
 
-    const myGalleries = document.querySelectorAll(".description");
-    myGalleries.forEach((gallery) => {
-      gallery.addEventListener("click", () => {
-        gallery.classList.toggle("swipe");
-      });
-    });
-  },
+        const myGalleries = document.querySelectorAll(".description");
+        myGalleries.forEach((gallery) => {
+            gallery.addEventListener("click", () => {
+                gallery.classList.toggle("swipe");
+            });
+        });
+    },
 };
 
 export default HomePage;
