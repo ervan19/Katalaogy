@@ -61,7 +61,7 @@ class ReviewForm extends HTMLElement {
         this.innerHTML = `
     <form tabindex="0" class="review_form" >
         <h2 tabindex="0">Add Reviews</h2>
-        <div class="input_field" tabindex="0">
+        <div class="input_field" tabindex="0" aria-label="Name Field Input">
             <label for="name" tabindex="0">Name :</label>
             <input 
             type="text" 
@@ -73,7 +73,7 @@ class ReviewForm extends HTMLElement {
             tabindex="0"
             required/>
         </div >
-        <div id="review" class="input_field">
+        <div id="review" class="input_field" aria-label="Review Field Input">
             <label for="review" tabindex="0">Review :</label>
             <textarea 
             name="review" 

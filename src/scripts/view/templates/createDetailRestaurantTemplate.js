@@ -62,7 +62,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
   <p tabindex="0">${restaurant.description}</p>
   </section>
 
-  <section id="review">
+  <section id="review" aria-label="Customer Review Container">
     <h3 tabindex="0">Customer Review</h3> 
     <div class="review_container"></div>
   </section>
