@@ -31,6 +31,7 @@ form-review{
     }
     button{
       border-radius: 12px;
+      min-height: 44px;
       width: 100%;
       padding: 12px 24px;
      }
@@ -52,6 +53,7 @@ form-review{
 
       button{
         width: max-content;
+        min-height: 44px;
       }
       
     }

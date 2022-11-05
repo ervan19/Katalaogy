@@ -15,6 +15,7 @@
         "eqeqeq" : ["error", "always"],
         "quotes" : ["error", "double"],
         "no-console" : 0,
+        "new-cap": 0,
         "no-alert" : 0,
         "no-underscore-dangling" : 0,
         "indent" : [1,4],

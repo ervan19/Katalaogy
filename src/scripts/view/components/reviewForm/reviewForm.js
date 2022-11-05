@@ -1,5 +1,6 @@
 import RestaurantsSource from "../../../data/restaurants-source";
 import UrlParser from "../../../routes/url-parser";
+import createReviewTemplate from "../../templates/createReviewTemplate";
 
 class ReviewForm extends HTMLElement {
     constructor() {
@@ -47,9 +48,13 @@ class ReviewForm extends HTMLElement {
             review: this._review,
         };
 
-        await RestaurantsSource.addReview(review).then(() => {
-            location.reload();
-        });
+        const responseReview = await RestaurantsSource.addReview(review);
+
+        const reviewContainer = document.querySelector(".review_container");
+
+        reviewContainer.innerHTML = createReviewTemplate(responseReview);
+        document.querySelector(".form_input_name").value = "";
+        document.querySelector(".form_input_review").value = "";
     }
 
     render() {

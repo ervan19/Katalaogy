@@ -64,6 +64,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
 
   <section id="review">
     <h3 tabindex="0">Customer Review</h3> 
+    <div class="review_container"></div>
   </section>
   <form-review></form-review>
 

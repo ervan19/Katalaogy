@@ -42,7 +42,7 @@ const Detail = {
             restaurantContainer.innerHTML =
         createDetailRestaurantTemplate(restaurant);
 
-            const review = document.querySelector("#review");
+            const review = document.querySelector(".review_container");
             review.innerHTML += createReviewTemplate(restaurant);
 
             LikeButtonInitiator.init({
