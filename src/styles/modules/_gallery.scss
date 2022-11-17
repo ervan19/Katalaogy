@@ -12,6 +12,7 @@
       grid-template-columns: repeat(1, 1fr);
       gap: 16px;
       flex-grow: 0;
+      
       .myGallery{
         aspect-ratio: 3/4;
         overflow: hidden;
@@ -19,17 +20,24 @@
         position: relative;
          @include flexStyle(center, row);
         cursor: pointer;
-        img{
-          object-fit: cover;
-          object-position:center;
+        
+        picture{
           width: 100%;
           height: 100%;
-          transition: all .5s ease-in-out;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: -1;;
-        }
+          background-color: black;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: all .5s ease-in-out;
+          }
+         }
         .description{
           align-self: flex-end;
           width: 100%;
@@ -60,8 +68,10 @@
         }
         &:hover{
           transform: scale(.96);
-          img{
-            transform: scale(1.2);
+          picture{
+            img{
+              transform: scale(1.2);
+            }
           }
           .description{
             transform: translateY(0);

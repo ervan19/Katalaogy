@@ -10,16 +10,16 @@ import "lazysizes";
 import "lazysizes/plugins/parent-fit/ls.parent-fit";
 
 const app = new App({
-  button: document.querySelector(".hamburger-menu"),
-  drawer: document.querySelector("nav"),
-  content: document.querySelector("#main"),
+    button: document.querySelector(".hamburger-menu"),
+    drawer: document.querySelector("nav"),
+    content: document.querySelector("#main"),
 });
 
 window.addEventListener("hashchange", () => {
-  app.renderPage();
+    app.renderPage();
 });
 
 window.addEventListener("DOMContentLoaded", async () => {
-  app.renderPage();
-  await swRegister();
+    app.renderPage();
+    await swRegister();
 });

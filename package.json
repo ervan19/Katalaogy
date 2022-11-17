@@ -10,7 +10,6 @@
     "build-serve": "npm run build && npm run serve",
     "lint": "eslint ./src ",
     "fix": "eslint ./src --fix",
-    "build-all": "npm run build & npm run serve",
     "test": "karma start",
     "e2e": "codeceptjs run --steps",
     "build-image": "node sharp.js"

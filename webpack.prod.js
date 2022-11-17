@@ -4,6 +4,7 @@ const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const common = require("./webpack.common");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
@@ -49,6 +50,7 @@ module.exports = merge(common, {
   },
 
   plugins: [
+    new CleanWebpackPlugin(),
     new WorkboxWebpackPlugin.InjectManifest({
       swSrc: path.resolve(__dirname, "src/scripts/sw.js"),
       swDest: "./sw.bundle.js",

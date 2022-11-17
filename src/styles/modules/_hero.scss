@@ -32,8 +32,9 @@
         color : $primaryColor;
       }
     }
+
     @media (min-width : 678px) {
-      &{
+      .hero{
         width: 100%;
         padding: 24px 40px;
         height: 400px;
