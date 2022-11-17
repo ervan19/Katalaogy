@@ -1,0 +1,47 @@
+@import "./variables";
+
+.restaurant-favorite {
+
+
+    .sectionHeading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        flex-direction: column;
+        gap: 24px;
+        #query{
+            position: relative;
+            min-width: 250px;
+            padding: 12px 12px;
+            border: none;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all .3s ease-in-out;
+            border-bottom: 1.5px solid rgb(201, 201, 201);
+
+            &::placeholder{
+                font-size: 14px;
+                color:rgb(201, 201, 201) ;
+            }
+            &:active, &:focus{
+                border-bottom: 1.5px solid $primaryColor;
+            }
+        }
+    }
+
+    @media (min-width:830px){
+        .sectionHeading{
+            flex-direction: row;
+
+            #query{
+                font-size: 16px;
+
+                &::placeholder{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

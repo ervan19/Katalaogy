@@ -1,35 +1,24 @@
 import FavoriteRestaurantIdb from "../../data/favorite-restaurant-idb";
-import createNotFoundTemplate from "../templates/createNotFoundTemplate";
-import createRestaurantCard from "../templates/createRestaurantCard";
+import FavoriteRestaurantSearchView from "./liked-restaurants//favorite-restaurant-search-view";
+import FavoriteRestaurantShowPresenter from "./liked-restaurants/favorite-restaurant-show-presenter";
+import FavoriteRestaurantSearchPresenter from "./liked-restaurants/favorite-restaurant-search-presenter";
 
+const view = new FavoriteRestaurantSearchView();
 const FavoritePage = {
     async render() {
-        return `
-        <section id="restaurants">
-          <article class="sectionHeading">
-          <h2 tabindex="0">Your Favorite Restaurants</h2>
-          </article>
-          <article class="card-container" >
-          </article>
-        </section>
-        `;
+        return view.getTemplate();
     },
 
     async afterRender() {
-        try {
-            const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
-            const cardContainer = document.querySelector(".card-container");
+        new FavoriteRestaurantShowPresenter({
+            view,
+            favoriteRestaurants: FavoriteRestaurantIdb,
+        });
 
-            if (restaurants.length <= 0) {
-                cardContainer.innerHTML = "No Restaurant Favorite";
-            }
-            restaurants.forEach((restaurant) => {
-                cardContainer.innerHTML += createRestaurantCard(restaurant);
-            });
-        } catch {
-            const cardContainer = document.querySelector(".card-container");
-            cardContainer.innerHTML = createNotFoundTemplate();
-        }
+        new FavoriteRestaurantSearchPresenter({
+            view,
+            favoriteRestaurants: FavoriteRestaurantIdb,
+        });
     },
 };
 

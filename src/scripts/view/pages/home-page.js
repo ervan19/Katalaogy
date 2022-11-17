@@ -3,11 +3,13 @@ import "../components/hero/hero";
 import "../components/galleryContainer/galleryContainer";
 import "../components/restaurantContainer/restaurantContainer";
 import createRestaurantCard from "../templates/createRestaurantCard";
+import "../components/jumbotron/jumbotron";
 
 const HomePage = {
     async render() {
         return `
       <hero-element></hero-element>
+      <jumbotron-element></jumbotron-element>
       <gallery-container></gallery-container>
       <restaurant-container></restaurant-container>
     `;

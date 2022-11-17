@@ -1,10 +1,9 @@
 #jumbotron{
     @include flexStyle(center, column);
-    margin-top: 120px;
+    margin: 120px 0;
     gap: 40px;
     width: 100%;
     min-height: 100vh;
-    padding: 16px;
     text-align:center;
     text-transform: capitalize;
     article {
@@ -96,7 +95,6 @@
     }
     @media (min-width: 1200px){
       &{
-          padding: 24px 80px;
           margin: 120px auto;
           margin-bottom: 0;
           width: 1000px;

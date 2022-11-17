@@ -86,10 +86,10 @@ class ReviewForm extends HTMLElement {
             resize="none"
             required></textarea>
         </div>
-        <button type="submit" tabindex="0">Add Review</button>
+        <button class="submitBtn_review" type="submit" tabindex="0">Add Review</button>
     </form>
     `;
     }
 }
 
-customElements.define("form-review", ReviewForm);
+customElements.define("review-form", ReviewForm);

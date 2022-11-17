@@ -4,10 +4,30 @@ import "../components/reviewForm/reviewForm";
 const createDetailRestaurantTemplate = (restaurant) => `
     
     <div class="restaurant_">
-    <h2 class="restaurant_name" tabindex="0">${restaurant.name}</h2>
-      <img class="resturant_picture" src="${
-    CONFIG.BASE_IMAGE_URL + restaurant.pictureId
-}" alt="${restaurant.name}" tabindex="0" aria-label="Restaurant image"/>
+    <h2 class="restaurant-name" tabindex="0">${restaurant.name}</h2>
+    <picture>
+          <source srcset="${
+    CONFIG.BASE_IMAGE_URL + "small/" + restaurant.pictureId
+}" type="image/webp" media="all and (max-width:600px)">
+          <source srcset="${
+    CONFIG.BASE_IMAGE_URL + "small/" + restaurant.pictureId
+}" type="image/jpeg" media="all and max-width:600px)">
+          <source srcset="${
+    CONFIG.BASE_IMAGE_URL + "medium/" + restaurant.pictureId
+}" type="image/webp" media="all and (min-width:601px) and (max-width:964px)">
+          <source srcset="${
+    CONFIG.BASE_IMAGE_URL + "medium/" + restaurant.pictureId
+}" type="image/jpeg" media="all and (min-width:601px) and (max-width:964px)">
+           <source srcset="${
+    CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
+}" type="image/jpeg" media="all and (min-width:964px)">
+          <source srcset="${
+    CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
+}" type="image/jpeg" media="all and (min-width:964px)">
+          <img class="lazyload" data-src="${
+    CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
+}" alt="${restaurant.name}"/>
+        </picture>
     </div>
     </div>
       <div class="restaurant_info">
@@ -66,7 +86,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
     <h3 tabindex="0">Customer Review</h3> 
     <div class="review_container"></div>
   </section>
-  <form-review></form-review>
+  <review-form></review-form>
 
 `;
 

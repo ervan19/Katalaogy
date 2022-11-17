@@ -7,10 +7,10 @@ class RestaurantContainer extends HTMLElement {
 
     render() {
         this.innerHTML = `
-    <section id="restaurants">
-        <section-heading headingP="Restaurant List" headingH2="Various Restaurant List"></section-heading>
-        <article class="card-container"></article>
-    </section>
+        <section id="restaurants">
+            <section-heading headingP="Restaurant List" headingH2="Various Restaurant List"></section-heading>
+            <article class="card-container"></article>
+        </section>
     `;
     }
 }
