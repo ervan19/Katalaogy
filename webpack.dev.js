@@ -16,9 +16,6 @@ module.exports = merge(common, {
         warnings: true,
       },
     },
-    devMiddleware: {
-      writeToDisk: true,
-    },
     compress: true,
   },
   plugins: [new CleanWebpackPlugin()],
