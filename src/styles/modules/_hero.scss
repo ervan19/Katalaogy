@@ -7,10 +7,9 @@
     width: 100%;
     min-height: 400px;
     margin: 56px 0;
-    background-image: url('/src/public/images/hero.jpg');
+    background-image: url(../../public/images/hero.jpg) no-repeat center;
     background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
     &::before{
       content: '';
       position: absolute;
@@ -32,9 +31,20 @@
         color : $primaryColor;
       }
     }
+    @media (max-width: 600px){
+      &{
+        background-image: url(../../public/images/hero-small.jpg) no-repeat center;
+      }
+    }
+
+    @media (min-width: 601px){
+      &{
+        background-image: url(../../public/images/hero-large.jpg) no-repeat center;
+      }
+    }
 
     @media (min-width : 678px) {
-      .hero{
+      &{
         width: 100%;
         padding: 24px 40px;
         height: 400px;

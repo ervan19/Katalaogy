@@ -1,11 +1,10 @@
+const path = require("path");
 const ImageminMozjpeg = require("imagemin-mozjpeg");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
-
-const path = require("path");
 
 module.exports = {
   entry: {
@@ -14,6 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
+    clean: true,
   },
   module: {
     rules: [
@@ -40,11 +40,6 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|png|gif)$/i,
         type: "asset/resource",
-        use: [
-          {
-            loader: "file-loader",
-          },
-        ],
       },
     ],
   },
@@ -57,8 +52,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/public"),
-          to: path.resolve(__dirname, "dist"),
+          from: path.resolve(__dirname, "src/public/"),
+          to: path.resolve(__dirname, "dist/"),
           globOptions: {
             ignore: ["**/images/**"],
           },
