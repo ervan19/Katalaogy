@@ -78,7 +78,24 @@
             }
           }
         }
+
+        .text-content .skeleton{
+          color: #eeeeee;
+        }
+        .skeleton, .skeleton_btn {
+          user-select: none;
+          background-color: #eeeeee;
+          color: #eeeeee;
+        }
+        &:empty{
+          width: 100%;
+          min-width: 280px;
+          background-color:  hsl(200, 20%, 80%);
+          min-height: 480px;
+        }
       }
+
+    
 
       .rate {
         @include flexStyle(center, row);

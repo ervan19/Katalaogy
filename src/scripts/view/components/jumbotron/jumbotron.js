@@ -18,7 +18,7 @@ class Jumbotron extends HTMLElement {
                 <source srcset="./images/jumbotron-small.jpg" type="image/jpeg" media="(max-width:600px)">
                 <source srcset="./images/jumbotron-large.webp" type="image/webp" media="(min-width:601px)">
                 <source srcset="./images/jumbotron-large.jpg" type="image/jpeg" media="(min-width:601px)">
-                <img class="lazyload" data-src="./images/jumbotron-large.jpg" alt="image 1" >
+                <img width="100%" class="lazyload" data-src="./images/jumbotron-large.jpg" alt="image 1" >
               </picture>
             </span>
         </aside>

@@ -1,4 +1,5 @@
 import "../sectionHeading/sectionHeading";
+import {createSkeletonRestaurantCard} from "../../templates/createRestaurantCard";
 
 class RestaurantContainer extends HTMLElement {
     connectedCallback() {
@@ -9,7 +10,9 @@ class RestaurantContainer extends HTMLElement {
         this.innerHTML = `
         <section id="restaurants">
             <section-heading headingP="Restaurant List" headingH2="Various Restaurant List"></section-heading>
-            <article class="card-container"></article>
+            <article class="card-container">
+                ${createSkeletonRestaurantCard(20)}
+            </article>
         </section>
     `;
     }

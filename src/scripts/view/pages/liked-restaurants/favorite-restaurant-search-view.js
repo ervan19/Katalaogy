@@ -1,4 +1,4 @@
-import createRestaurantCard from "../../templates/createRestaurantCard";
+import {createRestaurantCard} from "../../templates/createRestaurantCard";
 
 class FavoriteRestaurantSearchView {
     getTemplate() {

@@ -2,7 +2,7 @@ import RestaurantsSource from "../../data/restaurants-source";
 import "../components/hero/hero";
 import "../components/galleryContainer/galleryContainer";
 import "../components/restaurantContainer/restaurantContainer";
-import createRestaurantCard from "../templates/createRestaurantCard";
+import {createRestaurantCard} from "../templates/createRestaurantCard";
 import "../components/jumbotron/jumbotron";
 
 const HomePage = {
@@ -17,6 +17,7 @@ const HomePage = {
 
     async afterRender() {
         const cardContainer = document.querySelector(".card-container");
+        cardContainer.innerHTML = "";
 
         const restaurants = await RestaurantsSource.restaurantsList();
         restaurants.forEach((restaurant) => {

@@ -67,4 +67,35 @@ const createRestaurantCard = (restaurant) =>
       </div>
   </div>
   `;
-export default createRestaurantCard;
+
+const createSkeletonRestaurantCard = (count) => {
+    let template = "";
+
+    for (let i = 0; i < count; i += 1) {
+        template += `
+    <div class="card" tabindex="0" aria-label="restaurant card">
+    <div class="rate" aria-label="restaurant-rating" tabindex="0">
+        <p class="skeleton" tabindex="0">Lorem Rating</p>
+      </div>
+        <div class="card-image">
+          <img src="./images/placeholder-large.jpg" alt="skeleton" width="100%" height="350px" >
+        </div>
+        <div class="content-container">
+          <div class="text-content">
+            <h3 class="skeleton" tabindex="0">Lorem Color</h3>
+            <p class="skeleton" tabindex="0">Lorem ipsum color sit amet lorem ipsum color sit amet</p>
+          </div>
+          <div class="card-footer">
+            <div class="location" aria-label="city" tabindex="0">
+              <p class="skeleton" tabindex="0" >Lorem</p>
+            </div>
+            <p class="skeleton_btn">Lorem ipsum</p>
+          </div>
+        </div>
+    </div>
+    `;
+    }
+
+    return template;
+};
+export {createRestaurantCard, createSkeletonRestaurantCard};
