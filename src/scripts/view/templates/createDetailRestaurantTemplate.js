@@ -5,22 +5,22 @@ const createDetailRestaurantTemplate = (restaurant) => `
     <div class="restaurant_">
     <h2 class="restaurant-name" tabindex="0">${restaurant.name}</h2>
     <picture>
-          <source data-srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "small/" + restaurant.pictureId
 }" type="image/webp" media="all and (max-width:600px)">
-          <source data-srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "small/" + restaurant.pictureId
 }" type="image/jpeg" media="all and max-width:600px)">
-          <source data-srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "medium/" + restaurant.pictureId
 }" type="image/webp" media="all and (min-width:601px) and (max-width:964px)">
-          <source data-srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "medium/" + restaurant.pictureId
 }" type="image/jpeg" media="all and (min-width:601px) and (max-width:964px)">
-           <source data-srcset="${
+           <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
 }" type="image/jpeg" media="all and (min-width:964px)">
-          <source data-srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
 }" type="image/jpeg" media="all and (min-width:964px)">
           <img class="lazyload" data-src="${
