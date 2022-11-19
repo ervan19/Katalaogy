@@ -9,7 +9,7 @@ class Jumbotron extends HTMLElement {
         <article>
             <h2  tabindex="0">We help you find a variety of <span>unique and interesting</span> restaurants as a reference for you</h2>
             <p  tabindex="0">Providing complete information about restaurants is our job. You just need to choose which restaurant suits you.</p>
-            <button tabindex="0">Find Restaurant</button>
+            <a class="find_button" href="#restaurants" tabindex="0">Find Restaurant</a>
         </article>
         <aside class="jumbotron-image">
             <span>

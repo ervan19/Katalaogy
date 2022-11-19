@@ -26,9 +26,12 @@ Scenario("unliking one restraurant", async ({ I }) => {
 
   assert.strictEqual(firstRestaurantName, likedRestaurantName);
 
+  I.seeElement(".detailBtn_container");
   I.click(".detailBtn_container");
+
   I.waitForElement("#likeButton", 10);
   I.click("#likeButton");
 
   I.amOnPage("/#/favorite");
+  I.see("No Restaurants to showing", ".restaurant-item__not__found");
 });

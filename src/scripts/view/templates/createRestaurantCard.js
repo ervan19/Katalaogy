@@ -15,22 +15,22 @@ const createRestaurantCard = (restaurant) =>
     </div>
       <div class="card-image">
         <picture>
-          <source srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "small/" + restaurant.pictureId
 }" type="image/webp" media="all and (max-width:450px)">
-          <source srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "small/" + restaurant.pictureId
 }" type="image/jpeg" media="all and max-width:450px)">
-          <source srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "medium/" + restaurant.pictureId
 }" type="image/webp" media="all and (min-width:451px) and (max-width:964px)">
-          <source srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "medium/" + restaurant.pictureId
 }" type="image/jpeg" media="all and (min-width:451px) and (max-width:964px)">
-           <source srcset="${
+           <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
 }" type="image/jpeg" media="all and (min-width:964px)">
-          <source srcset="${
+          <source class="lazyload" data-srcset="${
     CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
 }" type="image/jpeg" media="all and (min-width:964px)">
           <img class="lazyload" data-src="${
