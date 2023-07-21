@@ -227,7 +227,7 @@ var FooterContainer = /*#__PURE__*/function (_HTMLElement) {
   return FooterContainer;
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
-customElements.define('footer-container', FooterContainer);
+customElements.define("footer-container", FooterContainer);
 
 /***/ }),
 

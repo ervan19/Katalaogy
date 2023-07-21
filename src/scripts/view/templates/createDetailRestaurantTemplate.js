@@ -1,31 +1,31 @@
-import CONFIG from '../../globals/config';
-import '../components/reviewForm/reviewForm';
+import CONFIG from "../../globals/config";
+import "../components/reviewForm/reviewForm";
 
 const createDetailRestaurantTemplate = (restaurant) => `
     <div class="restaurant_">
     <h2 class="restaurant-name" tabindex="0">${restaurant.name}</h2>
     <picture>
           <source class="lazyload" data-srcset="${
-            CONFIG.BASE_IMAGE_URL + 'small/' + restaurant.pictureId
-          }" type="image/webp" media="all and (max-width:600px)">
+    CONFIG.BASE_IMAGE_URL + "small/" + restaurant.pictureId
+}" type="image/webp" media="all and (max-width:600px)">
           <source class="lazyload" data-srcset="${
-            CONFIG.BASE_IMAGE_URL + 'small/' + restaurant.pictureId
-          }" type="image/jpeg" media="all and max-width:600px)">
+    CONFIG.BASE_IMAGE_URL + "small/" + restaurant.pictureId
+}" type="image/jpeg" media="all and max-width:600px)">
           <source class="lazyload" data-srcset="${
-            CONFIG.BASE_IMAGE_URL + 'medium/' + restaurant.pictureId
-          }" type="image/webp" media="all and (min-width:601px) and (max-width:964px)">
+    CONFIG.BASE_IMAGE_URL + "medium/" + restaurant.pictureId
+}" type="image/webp" media="all and (min-width:601px) and (max-width:964px)">
           <source class="lazyload" data-srcset="${
-            CONFIG.BASE_IMAGE_URL + 'medium/' + restaurant.pictureId
-          }" type="image/jpeg" media="all and (min-width:601px) and (max-width:964px)">
+    CONFIG.BASE_IMAGE_URL + "medium/" + restaurant.pictureId
+}" type="image/jpeg" media="all and (min-width:601px) and (max-width:964px)">
            <source class="lazyload" data-srcset="${
-             CONFIG.BASE_IMAGE_URL + 'large/' + restaurant.pictureId
-           }" type="image/jpeg" media="all and (min-width:964px)">
+    CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
+}" type="image/jpeg" media="all and (min-width:964px)">
           <source class="lazyload" data-srcset="${
-            CONFIG.BASE_IMAGE_URL + 'large/' + restaurant.pictureId
-          }" type="image/jpeg" media="all and (min-width:964px)">
+    CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
+}" type="image/jpeg" media="all and (min-width:964px)">
           <img class="lazyload" data-src="${
-            CONFIG.BASE_IMAGE_URL + 'large/' + restaurant.pictureId
-          }" alt="${restaurant.name}"/>
+    CONFIG.BASE_IMAGE_URL + "large/" + restaurant.pictureId
+}" alt="${restaurant.name}"/>
         </picture>
     </div>
     <section id="description">
@@ -41,9 +41,9 @@ const createDetailRestaurantTemplate = (restaurant) => `
       <h4 tabindex="0">Category</h4>
       <p tabindex="0">${restaurant.categories
         .map((category) => {
-          return category.name;
+            return category.name;
         })
-        .join(' | ')}</p>
+        .join(" | ")}</p>
       <h4 tabindex="0">Rating</h4>
         <p class="restaurant_rating" tabindex="0">${restaurant.rating}  
           <span>
@@ -59,20 +59,20 @@ const createDetailRestaurantTemplate = (restaurant) => `
           <h4 class="menu" tabindex="0">Foods</h4>
           <ul tabindex="0">
           ${restaurant.menus.foods
-            .map((food) => {
-              return `<li>| ${food.name}</li>`;
-            })
-            .join(' ')}
+        .map((food) => {
+            return `<li>| ${food.name}</li>`;
+        })
+        .join(" ")}
           </ul>
         </div>
         <div>
           <h4 class="menu" tabindex="0">Drinks</h4>
           <ul tabindex="0">
           ${restaurant.menus.drinks
-            .map((drink) => {
-              return `<li>| ${drink.name}</li>`;
-            })
-            .join(' ')}
+        .map((drink) => {
+            return `<li>| ${drink.name}</li>`;
+        })
+        .join(" ")}
           </ul>
         </div>
     </section>
@@ -81,12 +81,12 @@ const createDetailRestaurantTemplate = (restaurant) => `
   </div>
 
 
-
+  <review-form></review-form>
   <section id="review" aria-label="Customer Review Container">
     <h3 tabindex="0">Customer Review</h3> 
     <div class="review_container"></div>
   </section>
-  <review-form></review-form>
+
 
 `;
 
