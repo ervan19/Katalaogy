@@ -1,18 +1,20 @@
-const path = require("path");
-const ImageminMozjpeg = require("imagemin-mozjpeg");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
-const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+const path = require('path');
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, "src/scripts/index.js"),
+    app: path.resolve(__dirname, 'src/scripts/index.js'),
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js',
     clean: true,
   },
   module: {
@@ -20,17 +22,20 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          // },
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
           },
           {
-            loader: "resolve-url-loader",
+            loader: 'resolve-url-loader',
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sourceMap: true,
             },
@@ -39,23 +44,28 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|png|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
     ],
   },
+
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: path.resolve(__dirname, "src/templates/index.html"),
+      filename: 'index.html',
+      template: path.resolve(__dirname, 'src/templates/index.html'),
     }),
-    new FaviconsWebpackPlugin("./src/public/favicon.svg"),
+    new FaviconsWebpackPlugin('./src/public/favicon.svg'),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/public/"),
-          to: path.resolve(__dirname, "dist/"),
+          from: path.resolve(__dirname, 'src/public/'),
+          to: path.resolve(__dirname, 'dist/'),
           globOptions: {
-            ignore: ["**/images/**"],
+            ignore: ['**/images/**'],
           },
         },
       ],
@@ -79,5 +89,6 @@ module.exports = {
       ],
       overrideExtension: true,
     }),
+    // new MiniCssExtractPlugin(),
   ],
 };
